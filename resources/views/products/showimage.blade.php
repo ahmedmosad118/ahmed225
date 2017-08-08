@@ -30,7 +30,7 @@
                 @foreach ($images as $image)
                 <tr>
                   <td>{{$image->id}}</td>
-                  <td><img src="../image/{{$image->image}}"></td>
+                  <td><img src="../productimages/{{$image->image}}" width="30px" height="30px"></td>
                   <td>{{$image->image}}</td>
 /admin/upload-editimage
                    <td>
