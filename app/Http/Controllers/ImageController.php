@@ -36,7 +36,8 @@ class ImageController extends Controller
     public function store(Request $request)
     {
         $filename=$request->file("image")->getClientOriginalName();
-        $request->file('image')->storeAs("images", $filename);
+        $request->file('image')->move(public_path("/productimages"), $filename);//for public path 
+        //$request->file('image')->storeAs("productimages", $filename);// for storage path with sympolic link.. 
         $image=new Image;
 
         $image->image=$request->image->getClientOriginalName();
