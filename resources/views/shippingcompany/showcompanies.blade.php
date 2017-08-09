@@ -3,7 +3,7 @@
 @section('title', 'Dashboard')
 
 @section('content_header')
-    <h1>{{$supplier->name}} detailes </h1>
+    <h1>Companies List </h1>
 @stop
 
 @section('content')
@@ -12,23 +12,31 @@
         <div class="col-xs-12">
           <div class="box">
             <div class="box-header">
-              <h3 class="box-title"></h3>
+              <h3 class="box-title">Companies Table</h3>
             </div>
             <!-- /.box-header -->
             <div class="box-body">
               <table id="example2" class="table table-bordered table-hover">
                 <thead>
+                  <th>ID</th>
                   <th> Name </th>
-                  <th>Phone</th>
-                  <th>Address</th>
+                  <th>Website</th>
+                  <th>Edit</th>
+                  <th>Delete</th>
                 </tr>
                 </thead>
                 <tbody>
+                @forelse ($companies as $company)
                 <tr>
-                  <td>{{$supplier->name}}</td>
-                  <td>{{$supplier->phone}}</td>
-                  <td>{{$supplier->address}}</td>
+                  <td>{{$company->id}}</td>
+                  <td><a href="">{{$company->name}}</a></td>
+                  <td><a href="https://{{$company->website}}">{{$company->website}}</a></td>
+                  <td><a href="/company-edit/{{$company->id}}"><button type="button" class="btn btn-info">Edit</button></a></td>
+                  <td> <a href="/company-delete/{{$company->id}}"><button type="button" class="btn btn-danger">Delete</button></a></td>
                 </tr>
+                @empty
+                Sorry
+                @endforelse
 
               
                 </tbody>

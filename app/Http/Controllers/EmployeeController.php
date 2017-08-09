@@ -3,82 +3,77 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Shipping\Employee;
 
 class EmployeeController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
     public function index()
     {
-        //
+        
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+    
     public function create()
     {
-        //
+        return view('employees.addemployee');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
+    
     public function store(Request $request)
     {
-        //
+        $this->validate($request, [
+        'name' => 'required|max:255',
+        'address' => 'required|max:255',
+        'name' => 'required|email'
+    ]);
+
+        $employees=new Employee;
+        $employees->name=$request->name;
+        $employees->email=$request->email;
+        $employees->phone=$request->phone;
+        $employees->save();
+        return redirect('/show-employees');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
+ 
+    public function show()
     {
-        //
+        $employees=Employee::simplePaginate(15);
+        return view('employees.showemployees',compact('employees'));
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function edit($id)
     {
-        //
+        $employee=Employee::find($id);
+        return view('employees.editemployee',compact('employee'));
+
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+
     public function update(Request $request, $id)
     {
-        //
+        $this->validate($request, [
+        'name' => 'required|max:255',
+        'address' => 'required|max:255',
+        'name' => 'required|email'
+    ]);
+        
+        $employee=Employee::find($id);
+        $employee->name=$request->name;
+        $employee->email=$request->email;
+        $employee->phone=$request->phone;
+        $employee->save();
+        return redirect('/show-employees');
+
+        
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+    
     public function destroy($id)
     {
-        //
+        $employee=Employee::find($id);
+        $employee->delete();
+        return redirect('/show-employees');
     }
 }

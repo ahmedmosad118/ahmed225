@@ -1,5 +1,7 @@
 <?php
 
+//Core 
+
 Route::get('/', 'ProductController@index'
 );
 //product
@@ -90,9 +92,40 @@ Route::post('/admin/upload-addpatch-proprty','PropertyController@storeptch_prope
 Route::get('add-supplier','SupplierController@create');
 Route::post('admin/upload-addsupplier','SupplierController@store');
 Route::get('show-supplier','SupplierController@show');
+Route::get('show-supplier/{id}','SupplierController@show_supplier');//by id
 Route::get('/supplier-edit/{id}','SupplierController@edit');//update supplier 
 Route::post('/admin/upload-supplier/{id}','SupplierController@update');
 Route::get('/supplier-delete/{id}','SupplierController@delete');//delete
+
+//Shipping
+
+//Employee
+Route::get('/add-employee','EmployeeController@create');
+Route::post('/admin/upload-addemployee','EmployeeController@store');
+Route::get('/show-employees','EmployeeController@show');
+Route::get('/employee-edit/{id}','EmployeeController@edit');
+Route::post('/admin/update-employee/{id}','EmployeeController@update');
+Route::get('/employee-delete/{id}','EmployeeController@destroy');
+
+//
+
+//Shipping Company
+Route::get('/add-shipping-company','ShippingCompanyController@create');
+Route::post('/admin/upload-addcompany','ShippingCompanyController@store');
+Route::get('/show-shipping-companies','ShippingCompanyController@show');
+Route::get('/company-edit/{id}','ShippingCompanyController@edit');
+Route::post('/admin/update-company/{id}','ShippingCompanyController@update');
+Route::get('/company-delete/{id}','ShippingCompanyController@destroy');
+
+//Shipping Company Agent
+Route::get('/add-shipping-company-agent','ShippingCompanyAgentController@create');
+Route::post('/admin/upload-addcomany-agent','ShippingCompanyAgentController@store');
+Route::get('/show-shipping-companty-agents','ShippingCompanyAgentController@show');
+Route::get('/company-edit/{id}','ShippingCompanyAgentController@edit');
+Route::post('/admin/update-company/{id}','ShippingCompanyAgentController@update');
+Route::get('/company-delete/{id}','ShippingCompanyAgentController@destroy');
+
+
 
 
 

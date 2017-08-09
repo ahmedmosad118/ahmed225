@@ -30,7 +30,7 @@ class ModelController extends Controller
         $model->name=$request->name;
         $model->car_brand_id =$request->car_brand_id;
         $model->save();
-        return redirect('/show-brand');
+        return redirect('/show-model/'.$model->brand->id);
 
     }
 
@@ -61,7 +61,7 @@ class ModelController extends Controller
 
        
        $model->save();
-        return redirect('/show-brand');
+        return redirect('/show-model/'.$model->brand->id);
     }
 
    
@@ -69,7 +69,7 @@ class ModelController extends Controller
     {
         $model=CarModel::find($id);
         $model->delete();
-        return redirect('/show-brand');
+        return redirect('/show-model/'.$model->brand->id);
 
     }
 }

@@ -10,7 +10,7 @@
     <section class="content">
       <div class="row">
         <!-- left column -->
-        <div class="col-md-6">
+        <div class="col-md-12">
         @if (count($errors)>0)
           <div class="box box-danger" style="margin: : 20px">
             <div class="box-header with-border">
@@ -18,7 +18,7 @@
             </div>
             @foreach ($errors->all() as $error)
 
-          <span>{{ $error }}</span>
+          <ul><li>{{ $error }} </li></ul>
 
             @endforeach
            </div>
@@ -49,10 +49,12 @@
               </div>
             </form>
           </div>
-
-            </div>
           </div>
-           <div class="col-md-6">
+          </div>
+</section>
+    <section class="content">
+      <div class="row">
+        <div class="col-md-12">
          <div class="box box-primary">
             <div class="box-header with-border">
               <h3 class="box-title">Add Patch Property Values</h3>
@@ -100,12 +102,9 @@
             </div>
           </div>
 
+</div>
 
-       
-
-
-
-        </section>
+</section>
 @stop
 
 @section('css')

@@ -65,9 +65,9 @@ class PropertyController extends Controller
         return back();
  }
 
-    public function show($id)
+    public function show()
     {
-        //
+        
     }
 
     /**

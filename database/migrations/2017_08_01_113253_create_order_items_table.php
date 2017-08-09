@@ -18,7 +18,7 @@ class CreateOrderItemsTable extends Migration
             $table->integer('patch_id');
             $table->integer('order_id');
             $table->integer('count');
-            $table->decimal('price');
+            $table->float('price');
             $table->timestamps();
         });
     }

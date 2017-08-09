@@ -8,22 +8,22 @@ class Product extends Model
 {
     	 public function brand()
     {
-        return $this->belongsTo(CarBrand::class);
+        return $this->belongsTo(CarBrand::class,'car_brand_id');
 
 }
 	 public function model()
     {
-        return $this->belongsTo(CarModel::class);
+        return $this->belongsTo(CarModel::class,'car_model_id');
 
 }
 	 public function edition()
     {
-        return $this->belongsTo(CarEdition::class);
+        return $this->belongsTo(CarEdition::class,'car_edition_id');
 
 }
          public function type()
     {
-        return $this->belongsTo(ProductType::class);
+        return $this->belongsTo(ProductType::class,'product_type_id');
     }
 
 
@@ -35,6 +35,11 @@ class Product extends Model
     {
         return $this->hasMany(ProductImage::class);
     }
+         public function images()
+    {
+        return $this->belongsToMany(Image::class,'image_id');
+    }
+
             public function product_services()
     {
         return $this->hasMany(ProductServiceRecord::class);

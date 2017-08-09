@@ -19,7 +19,7 @@ class CreateOrdersTable extends Migration
             $table->integer('employe_id');
             $table->integer('shipping_company_id');
             $table->string("order_done_through");
-            $table->dicimal('shipping_fees');
+            $table->float('shipping_fees');
             $table->string('note')->nullable();
             $table->timestamps();
         });

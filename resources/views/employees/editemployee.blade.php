@@ -3,7 +3,7 @@
 @section('title', 'Dashboard')
 
 @section('content_header')
-    <h1>Add Model</h1>
+    <h1>Edit Employee</h1>
 @stop
 
 @section('content')
@@ -26,32 +26,32 @@
       
         <br>
 
-  
-
         @endif
+          
           <div class="box box-primary">
             <div class="box-header with-border">
-              <h3 class="box-title">Add New Model</h3>
+              <h3 class="box-title">Edit Employee</h3>
             </div>
-            <form role="form" method="post" action="/admin/upload-model">
+            <form role="form" method="post" action="/admin/update-employee/{{$employee->id}}">
             {{csrf_field()}}
             <div class="box-body">
-             <div class="form-group">
-              <label >Select Car Brand:</label>
-              <select class="form-control" name="car_brand_id" >
-                <option value="{{$brand->id}}">{{$brand->name}}</option>
-                
-              </select>
-            </div> 
-            </div>
-              <div class="box-body">
                 <div class="form-group">
                   <label > Name</label>
-                  <input type="text" name="name" class="form-control"  placeholder="Add Model name">
+                  <input type="text" name="name" class="form-control" value="{{$employee->name}}"  >
                 </div>
-       
-              </div>
-
+                </div>
+                <div class="box-body">
+                <div class="form-group">
+                  <label >Phone</label>
+                  <input type="text" name="phone" class="form-control" value="{{$employee->phone}}"  >
+                </div>
+                </div>
+                <div class="box-body">
+                <div class="form-group">
+                  <label > Email</label>
+                  <input type="email" name="email" class="form-control" value="{{$employee->email}}"  >
+                </div>
+                </div>
               <div class="box-footer">
                 <button type="submit" class="btn btn-primary">Submit</button>
               </div>

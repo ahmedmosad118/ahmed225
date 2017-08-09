@@ -1,8 +1,12 @@
-@extends("master")
-@section("content")
- 
+@extends('adminlte::page')
 
-    <!-- Main content -->
+@section('title', 'Dashboard')
+
+@section('content_header')
+    <h1>Add New Shipping Company</h1>
+@stop
+
+@section('content')
     <section class="content">
       <div class="row">
         <!-- left column -->
@@ -14,8 +18,7 @@
             </div>
             @foreach ($errors->all() as $error)
 
-          <span>{{ $error }}</span>
-
+          <ul><li>{{ $error }} </li></ul>
             @endforeach
            </div>
             
@@ -23,33 +26,25 @@
         <br>
 
         @endif
+          
           <div class="box box-primary">
             <div class="box-header with-border">
-              <h3 class="box-title">Add New employee</h3>
+              <h3 class="box-title">Add New Shipping Company</h3>
             </div>
-            <!-- /.box-header -->
-            <!-- form start -->
-            <form role="form" method="post" action="admin/upload-addemployee">
+            <form role="form" method="post" action="/admin/upload-addcompany">
             {{csrf_field()}}
-              <div class="box-body">
+            <div class="box-body">
                 <div class="form-group">
                   <label > Name</label>
-                  <input type="text" name="name" class="form-control"  placeholder="Add employee  name">
+                  <input type="text" name="name" class="form-control"  >
                 </div>
-                  <div class="form-group">
-                  <label > Phone</label>
-                  <input type="text" name="phone" class="form-control"  placeholder="Add employee Phone">
                 </div>
-
+                <div class="box-body">
                 <div class="form-group">
-                  <label > Address</label>
-                  <input type="text" name="address" class="form-control"  placeholder="Add employee Address">
+                  <label >Website</label>
+                  <input type="text" name="website" class="form-control"  >
                 </div>
-
-       
-              </div>
-              <!-- /.box-body -->
-
+                </div>
               <div class="box-footer">
                 <button type="submit" class="btn btn-primary">Submit</button>
               </div>
@@ -59,8 +54,15 @@
             </div>
           </div>
 
-  
 
 
         </section>
-@endsectionس
+@stop
+
+@section('css')
+    <link rel="stylesheet" href="/css/admin_custom.css">
+@stop
+
+@section('js')
+    <script> console.log('Hi!'); </script>
+@stop

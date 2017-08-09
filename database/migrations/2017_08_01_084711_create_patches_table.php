@@ -18,7 +18,7 @@ class CreatePatchesTable extends Migration
             $table->integer('product_id');
             $table->integer('supplier_id');
             $table->string('name');
-            $table->decimal('buying_price');
+            $table->float('buying_price');
             $table->integer('count');
             $table->timestamps();
         });

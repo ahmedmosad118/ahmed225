@@ -32,7 +32,7 @@
 
                <tr>
                   <td>{{$edition->id}}</td>
-                  <td>{{$edition->name}}</td>
+                  <td>({{$edition->name}}</td>
                   <td>{{$edition->year_from}}</td>
                   <td>{{$edition->year_to}}</td>
 

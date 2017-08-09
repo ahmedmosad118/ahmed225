@@ -16,7 +16,7 @@ class CreateProductServiceRecordsTable extends Migration
         Schema::create('product_service_records', function (Blueprint $table) {
             $table->integer('product_id');
             $table->integer('product_service_id');
-            $table->decimal('price');
+            $table->float('price');
             $table->timestamps();
         });
     }

@@ -11,9 +11,14 @@ class CarModel extends Model
     {
         return $this->hasMany(Product::class);
     }
+        public function editions()
+    {
+        return $this->hasMany(CarEdition::class);
+    }
+
         public function brand()
     {
-        return $this->belongsTo(CarBrand::class);
+        return $this->belongsTo(CarBrand::class,'car_brand_id');
     }
 
 }

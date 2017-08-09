@@ -20,7 +20,7 @@ class CreateProductsTable extends Migration
             $table->integer('car_model_id')->nullable();
             $table->integer('car_edition_id')->nullable();
             $table->string('name');
-            $table->decimal('selling_price');
+            $table->float('selling_price');
             $table->text('description');
             $table->timestamps();
         });

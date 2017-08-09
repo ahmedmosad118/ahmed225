@@ -18,7 +18,7 @@
             </div>
             @foreach ($errors->all() as $error)
 
-          <span>{{ $error }}</span>
+          <ul><li>{{ $error }} </li></ul>
 
           @endforeach
            </div>

@@ -3,7 +3,7 @@
 @section('title', 'Dashboard')
 
 @section('content_header')
-    <h1>Patch List</h1>
+    <h1>Property List</h1>
 @stop
 
 @section('content')

@@ -39,10 +39,10 @@
              
                   <td>{{$product->selling_price}}</td>
                   <td>{{$product->description}}</td>
-                  <td>{{$product->product_type_id}}</td>
-                  <td>{{$product->car_brand_id}}</td>
-                  <td>{{$product->car_model_id}}</td>
-                   <td>{{$product->car_edition_id}}</td>
+                  <td>{{$product->type->name}}</td>
+                  <td>{{$product->brand->name}}</td>
+                  <td>{{$product->model->name}}</td>
+                   <td>{{$product->edition->name}}{{$product->edition->year_from}}-{{$product->edition->year_to}}</td>
                    <td>
                     <a href="/product-edit/{{$product->id}}">
                     <button type="button" class="btn btn-info">

@@ -33,7 +33,7 @@ class EditionController extends Controller
         $edition->year_from =$request->year_from;
         $edition->year_to =$request->year_to;
         $edition->save();
-        return redirect('/show-brand');
+        return redirect('/show-edition/'.$edition->model->id);
 
     }
 
@@ -68,7 +68,7 @@ class EditionController extends Controller
         $edition->year_from =$request->year_from;
         $edition->year_to =$request->year_to;
         $edition->save();
-        return redirect('/show-brand');
+        return redirect('/show-edition/'.$edition->model->id);
 
     }
 
@@ -77,7 +77,7 @@ class EditionController extends Controller
     {
         $edition=CarEdition::find($id);
         $edition->delete();
-        return redirect('/show-brand');
+        return redirect('/show-edition/'.$edition->model->id);
 
     }
 }

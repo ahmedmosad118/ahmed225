@@ -3,11 +3,11 @@
 @section('title', 'Dashboard')
 
 @section('content_header')
-    <h1>Edit Model</h1>
+    <h1>Add New Shipping Company Agent</h1>
 @stop
 
 @section('content')
-<section class="content">
+       <section class="content" >
         <div class="row">
         <div class="col-md-12">
         @if (count($errors)>0)
@@ -28,26 +28,46 @@
         @endif
           <div class="box box-primary">
             <div class="box-header with-border">
-              <h3 class="box-title">Edit  Model</h3>
+              <h3 class="box-title">Add New Shipping Company Agent</h3>
             </div>
-            <form role="form" method="post" action="/admin/update-model/{{$model->id}}">
+            <form role="form" method="post" action="/admin/upload-addcomany-agent">
             {{csrf_field()}}
-            <div class="box-body">
+              <div class="box-body">
              <div class="form-group">
-              <label >Select Car Brand:</label>
-              <select class="form-control" name="car_brand_id" >
-              @foreach($brands as $brand)
-                <option value="{{$brand->id}}">{{$brand->name}}</option>
-                @endforeach
+              <label >Select Shaping Campany:</label>
+              @foreach($companies as $company)
+              <select class="form-control" name="shipping_company_id" >
+                <option value="{{$company->id}}">{{$company->name}}</option>
               </select>
+              @endforeach
             </div> 
             </div>
               <div class="box-body">
                 <div class="form-group">
                   <label > Name</label>
-                  <input type="text" name="name" class="form-control" value="{{$model->name}}">
+                  <input type="text" name="name" class="form-control" >
                 </div>
-       
+                <div class="box-body">
+                  <div class="form-group">
+                  <label > Phone</label>
+                  <input type="text" name="phone" class="form-control">
+                </div>
+                </div>
+                <div class="box-body">
+                <div class="form-group">
+                  <label > Email</label>
+                  <input type="email" name="email" class="form-control" >
+                </div>
+                </div>
+              <div class="box-body">
+                <div class="form-group">
+                  <label > Job</label>
+                  <input type="text" name="job" class="form-control" >
+                </div>
+                </div>
+
+
+
               </div>
 
               <div class="box-footer">
@@ -58,6 +78,9 @@
 
             </div>
           </div>
+          </section>
+
+
 
 
 
