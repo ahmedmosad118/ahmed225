@@ -54,7 +54,10 @@ class PropertyController extends Controller
 
     public function show()
     {
-        
+        $properties=Property::all();
+        return view("Core.patches.showproperties",compact("properties"));
+
+
     }
 
     /**

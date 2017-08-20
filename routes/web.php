@@ -82,6 +82,7 @@ Route::get('/patch-delete/{id}','PatchController@destroy');
 
 // property
 Route::get('/add-property', 'Core\PropertyController@create');
+Route::get('/show-properties', 'Core\PropertyController@show');
 Route::post('/admin/upload-addproprty','Core\PropertyController@store');
 Route::post('/admin/upload-addpatch-proprty','Core\PropertyController@storeptch_property');
 //
@@ -135,13 +136,15 @@ Route::get('/delete-client/{id}','Shipping\ClientController@destroy');
 
 //Orders
 Route::get('/add-order','Shipping\OrderController@create');
+Route::get('/add-order-statuse/{id}','Shipping\OrderController@create_statuse');
+Route::post('admin/upload-addorder','Shipping\OrderController@store');
 Route::post('admin/upload-addorder','Shipping\OrderController@store');
 Route::get('/show-orders','Shipping\OrderController@show');
 Route::get('/edit-client/{id}','Shipping\OrderController@edit');
 Route::post('/admin/update-agent/{id}','Shipping\OrderController@update');
 Route::get('/delete-client/{id}','Shipping\OrderController@destroy');
 
-//OrderStatuses
+//Order Statuses
 Route::get('/add-order-statuse','Shipping\OrderStatuseController@create');
 Route::post('/admin/upload-addstatuse','Shipping\OrderStatuseController@store');
 Route::get('/show-order-statuses','Shipping\OrderStatuseController@show');
@@ -149,8 +152,10 @@ Route::get('/statuse-edit/{id}','Shipping\OrderStatuseController@edit');
 Route::post('/admin/update-statuse/{id}','Shipping\OrderStatuseController@update');
 Route::get('/statuse-delete/{id}','Shipping\OrderStatuseController@destroy');
 
-//OrderStatuses
+//Order Items
 
 Route::get('/add-order-item','Shipping\OrderItemController@create');
+Route::post('/admin/upload-order-item','Shipping\OrderItemController@store');
+
 
 

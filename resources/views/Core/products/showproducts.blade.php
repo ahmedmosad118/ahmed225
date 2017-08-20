@@ -42,7 +42,7 @@
                   <td>{{$product->type->name}}</td>
                   <td>{{$product->brand->name}}</td>
                   <td>{{$product->model->name}}</td>
-                   <td>{{$product->edition->name}}{{$product->edition->year_from}}-{{$product->edition->year_to}}</td>
+                  <td>{{$product->edition->name}}{{$product->edition->year_from}}-{{$product->edition->year_to}}</td>
                    <td>
                     <a href="/product-edit/{{$product->id}}">
                     <button type="button" class="btn btn-info">
@@ -56,7 +56,7 @@
                     <span class=" glyphicon glyphicon-trash"></span> Delete
                      </button></a> 
                       
-                    
+                   </t> 
                   </td>
                   
                 @endforeach

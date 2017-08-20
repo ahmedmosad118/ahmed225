@@ -9,6 +9,7 @@ use App\Models\Shipping\Employee;
 use App\Models\Shipping\ShippingCompany;
 use App\Models\Shipping\ShippingCompanyAgent;
 use App\Models\Shipping\Order;
+use App\Models\Shipping\OrderStatuse;
 
 
 
@@ -22,6 +23,7 @@ class OrderController extends Controller
         return view('Shipping.orders.addorder',compact('companies','clients','employees'));
  
     }
+
 
     public function store(Request $request)
     {
@@ -46,8 +48,8 @@ class OrderController extends Controller
 
     public function show()
     {
-            $clients=Client::all();
-            return view('clients.showclients',compact("clients"));
+            $orders=Order::all();
+            return view('Shipping.orders.showorders',compact("orders"));
 
     }
 
@@ -76,6 +78,14 @@ class OrderController extends Controller
         $client->delete();
         return redirect("/show-clients");
     }
+    public function create_statuse($id)
+    {
+        $order=Order::find($id);
+        $statuses=OrderStatuse::all();
+        return view('Shipping.orders.addorderstatuse',compact('order','statuses'));
+ 
+    }
+
 
 
 }

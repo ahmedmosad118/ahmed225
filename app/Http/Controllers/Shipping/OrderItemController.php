@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Shipping;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Shipping\Order;
+use App\Models\Shipping\OrderItem;
+
 
 use App\Models\Core\Patch;
 
@@ -22,15 +24,13 @@ class OrderItemController extends Controller
 
     public function store(Request $request)
     {
-        $this->validate($request, [
-        'name' => 'required|max:255'
-    ]);
-        $client=new Client;
-        $client->name=$request->name;
-        $client->phone=$request->phone;
-        $client->address=$request->address;
-        $client->save();
-        return redirect("/show-clients");
+        $item=new OrderItem;
+        $item->patch_id=$request->patch_id;
+        $item->order_id=$request->order_id;
+        $item->count=$request->count;
+        $item->price=$request->price;
+        $item->save();
+        return redirect("/show-order");
 
     }
 

@@ -15,12 +15,12 @@
               <h3 class="box-title">Add Order Item</h3>
             </div>
          
-            <form role="form" method="post" action="/admin/upload-addproduct-image">
+            <form role="form" method="post" action="/admin/upload-order-item">
             {{csrf_field()}}
               <div class="box-body">
                 <div class="form-group">
                 <label > Patch </label>
-               <select class="form-control" name="product_id" >
+               <select class="form-control" name="patch_id" >
             
               @foreach($patches as $patch)
                 <option value="{{$patch->id}}">{{$patch->name}}</option>
@@ -30,7 +30,7 @@
           <div class="form-group">
               <label > Order </label>
 
-              <select class="form-control" name="image_id" >
+              <select class="form-control" name="order_id" >
               @foreach($orders as $order)
 
                 <option value="{{$order->id}}">{{$order->id}}</option>
@@ -38,6 +38,20 @@
                 @endforeach
               </select>
             </div> 
+                <div class="box-body">
+                <div class="form-group">
+                  <label >Price</label>
+                  <input type="text" name="price" class="form-control"  >
+                </div>
+                </div>
+               <div class="box-body">
+                <div class="form-group">
+                  <label >Count</label>
+                  <input type="text" name="count" class="form-control"  >
+                </div>
+                </div>
+
+
             </div>
 
               <div class="box-footer">

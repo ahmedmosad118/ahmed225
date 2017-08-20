@@ -20,33 +20,24 @@
                 <thead>
                 <tr>
                   <th>ID</th>
-                  <th>Patch Name </th>
-                  <th>Buying Price</th>
-                  <th>Product</th>
-                  <th>Supplier name</th>
-                  <th>Count</th>
+                  <th>Property Name </th>
                   <th>Edit</th>
                   <th>Delete</th>
                 </tr>
                 </thead>
                 <tbody>
-                @foreach($patches as $patch)
+                @foreach($properties as $property)
                 <tr>
-                  <td>{{$patch->id}}</td>
-                  <td>{{$patch->name}}</td>
-                  <td>{{$patch->buying_price}}</td>
-                  <td><a href="/show-product/{{$patch->product->id}}">{{$patch->product->name}}</a></td>
-                  <td><a href="show-supplier/{{$patch->supplier->id}}">{{$patch->supplier->name}}</a></td>
-                  <td>{{$patch->count}}</td>
-                   <td>
-                    <a href="/patch-edit/{{$patch->id}}">
+                  <td>{{$property->id}}</td>
+                  <td>{{$property->name}}</td>
+                    <a href="/property-edit/{{$property->id}}">
                       <button type="button" class="btn btn-info">Edit</button>
                      
                     </a>
                   </td>
                    <td>
                    
-                     <a href="/patch-delete/{{$patch->id}}"><button type="button" class="btn btn-danger">Delete</button></a> 
+                     <a href="/property-delete/{{$property->id}}"><button type="button" class="btn btn-danger">Delete</button></a> 
                       
                     
                   </td>
